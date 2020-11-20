@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="add_to_queue" type="id" />
+    <item name="go_to_queue_page" type="id" />
+    <item name="go_to_songs" type="id" />
+    <item name="go_to_albums" type="id" />
+</resources>
