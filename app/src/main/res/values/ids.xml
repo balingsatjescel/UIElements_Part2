@@ -4,4 +4,5 @@
     <item name="go_to_queue_page" type="id" />
     <item name="go_to_songs" type="id" />
     <item name="go_to_albums" type="id" />
+    <item name="song_delete" type="id" />
 </resources>

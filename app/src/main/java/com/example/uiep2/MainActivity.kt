@@ -1,12 +1,15 @@
 package com.example.uiep2
+
 import android.content.Intent
 import android.os.Bundle
+import android.support.design.widget.Snackbar
 import android.view.*
 import android.widget.AdapterView.AdapterContextMenuInfo
 import android.widget.ArrayAdapter
 import android.widget.ListView
 import android.widget.Toast
 import android.support.v7.app.AppCompatActivity
+import kotlinx.android.synthetic.main.activity_main.*
 
 var selectedSong = arrayListOf<String>()
 val productsArray = arrayOf(
@@ -49,14 +52,19 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onContextItemSelected(item: MenuItem): Boolean {
-        return when(item.itemId){
+        return when (item.itemId) {
             R.id.add_to_queue -> {
                 Toast.makeText(this, "Added to Queues", Toast.LENGTH_SHORT).show()
                 val info = item.menuInfo as AdapterContextMenuInfo
                 selectedSong.add(productsArray[info.position])
+                val snackbar = Snackbar.make(mainLayout,"View Listed Songs?",Snackbar.LENGTH_LONG)
+                snackbar.setAction("Go",View.OnClickListener {
+                    startActivity(Intent(applicationContext, QueuedSongsActivity::class.java))
+                })
+                snackbar.show()
                 true
             }
-            else-> super.onContextItemSelected(item)
+            else -> super.onOptionsItemSelected(item)
         }
     }
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
